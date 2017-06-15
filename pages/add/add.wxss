@@ -1,0 +1,34 @@
+.index{
+	/*background: #fbf9fe;*/
+	padding: 30rpx;
+}
+.index-hd{
+	width: 100%;
+	text-align: center;
+	font-size: 1rem;
+}
+.index-main{
+	border: 1px solid #ddd;
+	border-radius: 17rpx;
+	padding: 40rpx;
+	margin-top: 50rpx;
+}
+.section{
+	border-bottom: 1rpx solid #ddd;
+	padding-bottom: 10rpx;
+	margin-bottom: 30rpx;
+	font-size: 0.8rem;
+}
+.picker{
+	height: 20px;
+}
+.picker-s{
+	color: #808080;
+}
+.buttons{
+	text-align: center;
+	width: 100%;
+}
+.other-button-hover{
+	opacity: .7;
+}

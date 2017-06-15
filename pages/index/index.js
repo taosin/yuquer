@@ -1,31 +1,17 @@
 //index.js
 //获取应用实例
 const AV = require('./../../utils/libs/av-weapp-min.js')
-var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    list:[]
   },
   onLoad: function () {
-    console.log('onLoad')
     var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
+      var query = new AV.Query('AccountBook');
+      query.find().then(function(results) {
+        that.setData({
+        list:results
       })
-     var query = new AV.Query('ReadInfo');
-	    query.find().then(function(results) {
-        console.log(results.code);
-	    }, function(error) {});
-    })
+     }, function(error) {});
   }
 })

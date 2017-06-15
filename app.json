@@ -1,13 +1,14 @@
 {
   "pages":[
+    "pages/add/add",
     "pages/index/index",
     "pages/logs/logs"
   ],
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+   "navigationBarTextStyle": "black",
     "navigationBarTitleText": "在线小账本",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#fbf9fe",
+    "backgroundColor": "#fbf9fe"
   },
   "tabBar": {
     "color": "#7A7E83",
@@ -20,7 +21,7 @@
       "selectedIconPath": "images/icon_component_HL.png",
       "text": "列表"
     }, {
-      "pagePath": "pages/logs/logs",
+      "pagePath": "pages/add/add",
       "iconPath": "images/icon_API.png",
       "selectedIconPath": "images/icon_API_HL.png",
       "text": "添加"
