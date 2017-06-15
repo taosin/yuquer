@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2017-06-15 13:34:35
 * @Last Modified by:   iMocco
-* @Last Modified time: 2017-06-15 16:35:21
+* @Last Modified time: 2017-06-15 17:04:24
 */
 const AV = require('./../../utils/libs/av-weapp-min.js')
 var app = getApp()
@@ -40,6 +40,9 @@ Page({
 		}
 		var AccountBook = AV.Object.extend('AccountBook');
 		var accountBook = new AccountBook();
+		this.setData({
+			loading: true
+		})
 		accountBook.set('usety',this.data.usety);
 		accountBook.set('money',this.data.money);
 		accountBook.set('date',this.data.date);
@@ -48,7 +51,11 @@ Page({
 		accountBook.save().then(function (result) {
 			if(result.id){
 				this.setData({
-					loading: !this.data.loading
+					loading: false,
+					usety: '',
+					money: '',
+					date: '',
+					remark: ''
 				})
 			}
 		}, function (error) {

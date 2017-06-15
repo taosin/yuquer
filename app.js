@@ -26,10 +26,23 @@ App({
     }
   },
   globalData:{
-    userInfo:null
-  }
+    userInfo:null,
+    user:null
+  },
 })
 AV.init({ 
  appId: 'yourappid', 
- appKey: 'yourappkey', 
+ appKey: 'yourappkey'
 })
+AV.User.loginWithWeapp().then(user => {
+  console.log(user);
+}).catch(console.error)
+const user = AV.User.current();
+var that = this
+wx.getUserInfo({
+  success: ({userInfo}) => {
+    user.set(userInfo).save().then(user => {
+      that.globalData.userInfo = user.toJSON();
+    }).catch(console.error);
+  }
+});
