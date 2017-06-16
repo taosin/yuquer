@@ -3,12 +3,22 @@
 .index{
 	background: #fbf9fe;
 	height: 100%;
+	padding: 10rpx 25rpx;
 }
 
 .kind-lists{
 }
 .kind-list{
-	margin: 0rpx 0 40rpx 0;
+	margin: 0rpx 0 20rpx 0;
 	background: #fff;
 	padding: 40rpx;
+	padding-bottom: 60rpx;
+	font-size: 10pt;
+}
+
+.left{
+	float: left;
+}
+.right{
+	float: right;
 }

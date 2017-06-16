@@ -2,7 +2,12 @@
 	<view class="kind-lists">
 		<block wx:for-items="{{list}}">
 			<view class="kind-list">
-				{{item.usety}} - {{item.money}} - {{item.date}}
+				<view class="left"> 
+					{{item.date}} - ￥{{item.money}}
+				</view>
+				<view class="right">
+					{{item.usety}}
+				</view>
 			</view>
 		</block>
 	</view>

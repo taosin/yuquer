@@ -21,7 +21,7 @@
 			<input placeholder="备注" bindinput="bindRemarkKeyInput"/>
 		</view>
 		<view class="buttons">
-		<button type="primary" size="mini" loading="{{loading}}" bindtap="submit" hover-class="other-button-hover"> 保存 </button>
+		<button type="primary" size="mini" bindtap="submit" hover-class="other-button-hover"> 保存 </button>
 		</view>
 	</view>
 </view>

@@ -5,13 +5,21 @@ Page({
   data: {
     list:[]
   },
+  onPullDownRefresh: function () {
+    // wx.showToast({
+    //   title: '正在加载',
+    //   icon: 'loading'
+    // })
+    this.onLoad();
+  },
   onLoad: function () {
     var that = this
-      var query = new AV.Query('AccountBook');
-      query.find().then(function(results) {
-        that.setData({
+    var query = new AV.Query('AccountBook');
+    query.descending('createdAt');
+    query.find().then(function(results) {
+      that.setData({
         list:results
       })
-     }, function(error) {});
+    }, function(error) {});
   }
 })

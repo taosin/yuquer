@@ -2,14 +2,13 @@
 * @Author: iMocco
 * @Date:   2017-06-15 13:34:35
 * @Last Modified by:   iMocco
-* @Last Modified time: 2017-06-15 17:04:24
+* @Last Modified time: 2017-06-15 21:32:58
 */
 const AV = require('./../../utils/libs/av-weapp-min.js')
 var app = getApp()
 Page({
 	data: {
 		date:'',
-		loading:false,
 		usety:'',
 		money:'',
 		reamrk:''
@@ -40,9 +39,6 @@ Page({
 		}
 		var AccountBook = AV.Object.extend('AccountBook');
 		var accountBook = new AccountBook();
-		this.setData({
-			loading: true
-		})
 		accountBook.set('usety',this.data.usety);
 		accountBook.set('money',this.data.money);
 		accountBook.set('date',this.data.date);
@@ -50,16 +46,19 @@ Page({
 		accountBook.set('state','1');
 		accountBook.save().then(function (result) {
 			if(result.id){
-				this.setData({
-					loading: false,
-					usety: '',
-					money: '',
-					date: '',
-					remark: ''
+				wx.showToast({
+					title: '添加成功',
+					icon: 'success'
 				})
 			}
 		}, function (error) {
 			console.error(error);
 		});
+		this.setData({
+			usety: '',
+			money: '',
+			date: '',
+			remark: ''
+		})
 	}
 })
