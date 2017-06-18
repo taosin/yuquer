@@ -3,7 +3,7 @@
 .index{
 	background: #fbf9fe;
 	height: 100%;
-	padding: 10rpx 25rpx;
+	padding: 10rpx 0;
 }
 
 .kind-lists{
@@ -11,14 +11,34 @@
 .kind-list{
 	margin: 0rpx 0 20rpx 0;
 	background: #fff;
-	padding: 40rpx;
-	padding-bottom: 60rpx;
-	font-size: 10pt;
+	height: 120rpx;
 }
 
 .left{
 	float: left;
+	width: 40%;
+	height: 100%;
+	padding-left: 10rpx;
+}
+.text{
+	font-size: 14pt;
 }
 .right{
 	float: right;
+	width: 49%;
+	text-align: right;
+	height: 100%;
+	padding-top: -110rpx;
+}
+.up{
+	font-size: 10pt;
+	color: #e64340;
+	height: 50%;
+	padding: 20rpx 20rpx 0 0;
+}
+.bot{
+	font-size: 10pt;
+	color: #888888;
+	height: 50%;
+	padding-right: 20rpx;
 }

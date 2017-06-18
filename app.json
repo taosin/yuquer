@@ -1,7 +1,9 @@
 {
   "pages":[
-    "pages/add/add",
+    "pages/my/my",
     "pages/index/index",
+    "pages/add/add",
+    "pages/login/login",
     "pages/logs/logs"
   ],
   "window":{
@@ -31,7 +33,7 @@
       "selectedIconPath": "images/icon_API_HL.png",
       "text": "分析"
     }, {
-      "pagePath": "pages/logs/logs",
+      "pagePath": "pages/my/my",
       "iconPath": "images/icon_API.png",
       "selectedIconPath": "images/icon_API_HL.png",
       "text": "我的"

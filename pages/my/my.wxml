@@ -1,0 +1,11 @@
+<view class="index" >
+	<view class="user-info">
+		<block wx:if="{{hasUserInfo === false}}">
+			<text class="page-body-text" bindtap="getUserInfo">点击登录</text>
+		</block>
+		<block wx:if="{{hasUserInfo === true}}">
+			<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</block>
+	</view>
+</view>

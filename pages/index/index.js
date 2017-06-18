@@ -6,13 +6,12 @@ Page({
     list:[]
   },
   onPullDownRefresh: function () {
-    // wx.showToast({
-    //   title: '正在加载',
-    //   icon: 'loading'
-    // })
     this.onLoad();
   },
   onLoad: function () {
+    this.getList();
+  },
+  getList: function (){
     var that = this
     var query = new AV.Query('AccountBook');
     query.descending('createdAt');
@@ -20,6 +19,12 @@ Page({
       that.setData({
         list:results
       })
+      wx.stopPullDownRefresh({
+        complete: function (res) {
+          console.log(res, new Date())
+        }
+      })
     }, function(error) {});
   }
 })
+

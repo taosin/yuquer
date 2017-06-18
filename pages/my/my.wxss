@@ -1,0 +1,21 @@
+.index{
+	background: #1a99fb;
+}
+.user-info{
+	border-bottom: 1rpx solid #888;
+	color: #fff;
+	padding:80rpx 40rpx 80rpx 80rpx;
+	text-align: center;
+}
+.tip{
+}
+.userinfo-avatar {
+  border-radius: 128rpx;
+  width: 128rpx;
+  height: 128rpx;
+}
+.userinfo-nickname {
+  margin-top: 20rpx;
+  font-size: 38rpx;
+  clear: both;
+}

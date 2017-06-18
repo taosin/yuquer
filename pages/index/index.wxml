@@ -3,10 +3,17 @@
 		<block wx:for-items="{{list}}">
 			<view class="kind-list">
 				<view class="left"> 
-					{{item.date}} - ￥{{item.money}}
+					<text class="text">
+						￥{{item.money}}
+					</text>
 				</view>
 				<view class="right">
-					{{item.usety}}
+					<view class="up">
+						{{item.usety}}
+					</view>
+					<view class="bot">
+						{{item.date}} 
+					</view>
 				</view>
 			</view>
 		</block>
