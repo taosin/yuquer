@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2017-06-15 13:34:35
 * @Last Modified by:   iMocco
-* @Last Modified time: 2017-06-15 21:32:58
+* @Last Modified time: 2017-06-22 10:52:41
 */
 const AV = require('./../../utils/libs/av-weapp-min.js')
 var app = getApp()
@@ -34,6 +34,7 @@ Page({
 		})
 	},
 	submit:function(e){
+		debugger;
 		if(!this.data.usety || !this.data.money){
 			return;
 		}

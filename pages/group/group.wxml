@@ -1,0 +1,3 @@
+<view class="group-index">
+	<button open-type="share">邀请好友</button>
+</view>

@@ -3,7 +3,7 @@
 .index{
 	background: #fbf9fe;
 	height: 100%;
-	padding: 10rpx 0;
+	padding: 0 0 20rpx 0;
 }
 
 .kind-lists{

@@ -4,18 +4,31 @@ const AV = require('./../../utils/libs/av-weapp-min.js')
 Page({
   data: {
     list:{},
-    dates:[]
+    dates:[],
+    page:0,
+    scroll:true,
+
   },
   onPullDownRefresh: function () {
     this.onLoad();
   },
   onLoad: function () {
-    this.getList();
+    var that = this;
+    wx.getStorage({
+      key: 'hasUserLogin',
+      success: function(res) {
+        if(res.data){
+          that.getList();
+        }
+      } 
+    })
   },
   getList: function (){
     var that = this
     var query = new AV.Query('AccountBook');
     query.descending('createdAt');
+    // query.limit(10);
+    // query.skip(page * 10);
     query.find().then(function(results) {
       wx.stopPullDownRefresh({
         complete: function (res) {
@@ -24,7 +37,7 @@ Page({
       })
     }, function(error) {});
   },
-  transData(data){
+  transData: function (data){
     var dates = [];
     var keys = {};
     var values = {};

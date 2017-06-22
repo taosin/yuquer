@@ -1,11 +1,11 @@
 .index{
-	background: #1a99fb;
 }
 .user-info{
 	border-bottom: 1rpx solid #888;
 	color: #fff;
-	padding:80rpx 40rpx 80rpx 80rpx;
+	padding:40rpx 40rpx 40rpx 40rpx;
 	text-align: center;
+	background: #1a99fb;
 }
 .tip{
 }
@@ -13,9 +13,21 @@
   border-radius: 128rpx;
   width: 128rpx;
   height: 128rpx;
+  clear: both;
 }
 .userinfo-nickname {
   margin-top: 20rpx;
   font-size: 38rpx;
-  clear: both;
+}
+.userinfo{
+	width: 128rpx;
+	margin: 0 auto;
+}
+.user-group{
+	margin-top: 20rpx;
+	font-size: 10pt;
+	border: 1rpx solid #ddd;
+	border-left: none;
+	border-right: none;
+	padding: 30rpx 10rpx 30rpx 40rpx;
 }

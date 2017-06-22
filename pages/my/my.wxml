@@ -1,11 +1,16 @@
 <view class="index" >
 	<view class="user-info">
-		<block wx:if="{{hasUserInfo === false}}">
+		<block wx:if="{{hasUserLogin === false}}">
 			<text class="page-body-text" bindtap="getUserInfo">点击登录</text>
 		</block>
-		<block wx:if="{{hasUserInfo === true}}">
-			<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		<block wx:if="{{hasUserLogin === true}}">
+			<view class="userinfo">
+				<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+				<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+			</view>
 		</block>
+	</view>
+	<view class="user-groups">
+		<navigator url="/pages/group/group" hover-class="navigator-hover" class="user-group">我的分组</navigator>
 	</view>
 </view>
