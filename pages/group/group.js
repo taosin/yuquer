@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2017-06-22 14:37:12
 * @Last Modified by:   iMocco
-* @Last Modified time: 2017-06-22 15:05:58
+* @Last Modified time: 2017-07-03 11:05:42
 */
 
 const AV = require('./../../utils/libs/av-weapp-min.js')
@@ -35,6 +35,7 @@ Page({
 		query.find().then(function(results) {
 			wx.stopPullDownRefresh({
 				complete: function (res) {
+					this.list = result
 				}
 			})
 		}, function(error) {});

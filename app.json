@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/my/my",
     "pages/index/index",
+    "pages/my/my",
     "pages/add/add",
     "pages/login/login",
     "pages/logs/logs",
@@ -9,7 +9,7 @@
   ],
   "window":{
    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "在线小账本",
+    "navigationBarTitleText": "阅读记录",
     "navigationBarBackgroundColor": "#fbf9fe",
     "backgroundColor": "#fbf9fe"
   },

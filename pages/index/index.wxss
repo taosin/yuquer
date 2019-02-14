@@ -8,7 +8,7 @@
 
 .kind-lists{
 	background: #fff;
-	padding: 10rpx 0 10rpx 100rpx;
+	padding: 10rpx 0 10rpx 10rpx;
 }
 .kind-list{
 	font-size: 10pt;
@@ -30,12 +30,4 @@
 }
 .text-right{
 	float: right;
-}
-.image{
-	width: 60rpx;
-	height: 60rpx;
-	border-radius: 60rpx;
-	float: left;
-	margin-left: -80rpx;
-	margin-top: 5rpx;
 }

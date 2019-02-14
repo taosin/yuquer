@@ -7,14 +7,10 @@
 				</text>
 			</view>
 			<view class="kind-lists">
-				<block wx:for="{{list[i]}}" wx:for-item="list">
+				<block wx:for="{{list[i]}}" wx:for-item="list" bindtap="submit(list.url)">
 					<view class="kind-list">
-						<image src="http://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKiauVH65XNEZ9V7BmKxOXgPibfd5XMn6V1CCiblVMfVa4iacyibAudeicAq9HFcTZG9R2wK1NtNegKZrdw/0" class="image"></image>
 						<text class="text-left">
-							{{list.usety}}
-						</text>
-						<text class="text-right">
-							{{list.money}}
+							{{list.title}}
 						</text>
 					</view>
 				</block>
