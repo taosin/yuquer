@@ -22,12 +22,12 @@
       "pagePath": "pages/index/index",
       "iconPath": "images/icon_component.png",
       "selectedIconPath": "images/icon_component_HL.png",
-      "text": "列表"
+      "text": "文档"
     }, {
       "pagePath": "pages/add/add",
       "iconPath": "images/icon_API.png",
       "selectedIconPath": "images/icon_API_HL.png",
-      "text": "添加"
+      "text": "发现"
     }, {
       "pagePath": "pages/logs/logs",
       "iconPath": "images/icon_API.png",
