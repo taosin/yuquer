@@ -24,7 +24,8 @@ class App extends Taro.Component {
       navigationBarTitleText: 'YuQuer',
       navigationBarBackgroundColor: '#fbf9fe',
       backgroundColor: '#fbf9fe'
-    },
+    }
+    ,
     tabBar: {
       color: '#7A7E83',
       selectedColor: '#3cc51f',
@@ -41,13 +42,13 @@ class App extends Taro.Component {
           pagePath: 'pages/index/index',
           iconPath: 'images/icon_API.png',
           selectedIconPath: 'images/icon_API_HL.png',
-          text: '发现'
+          text: '工作台'
         },
         {
           pagePath: 'pages/index/index',
           iconPath: 'images/icon_API.png',
           selectedIconPath: 'images/icon_API_HL.png',
-          text: '分析'
+          text: '发现'
         },
         {
           pagePath: 'pages/my/my',

@@ -13,25 +13,6 @@ Page({
   },
   onLoad: function () {
     var that = this;
-    wx.getStorage({
-      key: 'hasUserLogin',
-      success: function(res) {
-        if(res.data){
-          that.getList();
-        }
-      } 
-    })
-    wx.request({
-      url: 'https://www.yuque.com/api/v2/users/taoxin',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'YuQuer',
-        'X-Auth-Token:':'token'
-      },
-      success(res) {
-        console.log(res.data)
-      }
-    })
   },
   getList: function (){
   },
