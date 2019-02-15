@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import './custom-variables.scss';
+@import "~taro-ui/dist/style/index.scss";
 .container {
   height: 100%;
   display: flex;

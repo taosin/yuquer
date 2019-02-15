@@ -1,6 +1,7 @@
 import { Block, View, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
+import { AtButton } from 'taro-ui'
 import './index.scss'
 @withWeapp('Page')
 class _C extends Taro.Component {
@@ -26,15 +27,13 @@ class _C extends Taro.Component {
     const { dates: dates } = this.state
     return (
       <View className="index">
-      <Icon size='60' type='success' />
-      <Icon size='60' type='info' />
-      <Progress percent={20} showInfo strokeWidth={2} />
-      <Progress percent={40} strokeWidth={2} active />
-      <Progress percent={60}  strokeWidth={2} active />
-      <Progress percent={80}  strokeWidth={2} active activeColor='blue' />
+      <AtButton>按钮文案</AtButton>
+      <AtButton type='primary'>按钮文案</AtButton>
+      <AtButton type='secondary'>按钮文案</AtButton>
+
       </View>
       )
-    }
-  } 
+  }
+} 
 
-  export default _C
+export default _C

@@ -3,6 +3,7 @@ import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
 import './app.scss'
 import https from './utils/index.js'
+
 class App extends Taro.Component {
   state = {
     hasUserLogin: false
@@ -10,7 +11,7 @@ class App extends Taro.Component {
 
   componentWillMount() {
     this.$app.globalData = this.globalData
-    https.request();
+    https.request({url:'users/taoxin'});
   }
   config = {
     pages: [
