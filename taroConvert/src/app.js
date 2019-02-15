@@ -17,12 +17,14 @@ class App extends Taro.Component {
     pages: [
       'pages/index/index',
       'pages/my/my',
-      'pages/login/login'
+      'pages/login/login',
+      'pages/dashboard/dashboard',
+      'pages/find/find',
     ],
     window: {
       navigationBarTextStyle: 'black',
       navigationBarTitleText: 'YuQuer',
-      navigationBarBackgroundColor: '#fbf9fe',
+      navigationBarBackgroundColor: '#ffffff',
       backgroundColor: '#fbf9fe'
     }
     ,
@@ -39,13 +41,13 @@ class App extends Taro.Component {
           text: '文档'
         },
         {
-          pagePath: 'pages/index/index',
+          pagePath: 'pages/dashboard/dashboard',
           iconPath: 'images/icon_API.png',
           selectedIconPath: 'images/icon_API_HL.png',
           text: '工作台'
         },
         {
-          pagePath: 'pages/index/index',
+          pagePath: 'pages/find/find',
           iconPath: 'images/icon_API.png',
           selectedIconPath: 'images/icon_API_HL.png',
           text: '发现'
