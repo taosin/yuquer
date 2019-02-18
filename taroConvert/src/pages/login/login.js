@@ -6,7 +6,7 @@ import './login.scss'
 @withWeapp('Page')
 class _C extends Taro.Component {
   navigateTo = () => {
-    Taro.navigateTo({ url: '/pages/add/add' })
+    // Taro.navigateTo({ url: '/pages/add/add' })
   }
   navigateBack = () => {
     Taro.navigateBack()

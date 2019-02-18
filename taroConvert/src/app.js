@@ -16,7 +16,7 @@ class App extends Taro.Component {
   config = {
     pages: [
       'pages/index/index',
-      'pages/my/my',
+      'pages/mine/mine',
       'pages/login/login',
       'pages/dashboard/dashboard',
       'pages/find/find',
@@ -24,8 +24,8 @@ class App extends Taro.Component {
     window: {
       navigationBarTextStyle: 'black',
       navigationBarTitleText: 'YuQuer',
-      navigationBarBackgroundColor: '#ffffff',
-      backgroundColor: '#fbf9fe'
+      navigationBarBackgroundColor: '#fdfdfd',
+      backgroundColor: '#fdfdfd'
     }
     ,
     tabBar: {
@@ -53,7 +53,7 @@ class App extends Taro.Component {
           text: '发现'
         },
         {
-          pagePath: 'pages/my/my',
+          pagePath: 'pages/mine/mine',
           iconPath: 'images/icon_API.png',
           selectedIconPath: 'images/icon_API_HL.png',
           text: '我的'
