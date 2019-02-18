@@ -2,7 +2,7 @@
  * @Author: iMocco
  * @Date:   2019-02-15 18:08:23
  * @Last Modified by:   iMocco
- * @Last Modified time: 2019-02-15 18:49:49
+ * @Last Modified time: 2019-02-18 14:59:04
  */
  import { Block, View, Text } from '@tarojs/components'
  import Taro from '@tarojs/taro'
@@ -14,7 +14,7 @@
  	constructor() {
  		super(...arguments)
  		this.state = {
- 			posts: [
+ 			cards: [
  			{ note: '小Tips', extra: '额外信息', title: '标题', thumb: 'http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG' },
  			{ note: '小Tips', extra: '额外信息', title: '标题', thumb: 'http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG' },
  			{ note: '小Tips', extra: '额外信息', title: '标题', thumb: 'http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG' },
@@ -28,27 +28,19 @@
  		})
  	}
  	render() {
- 		const { posts } = this.state
- 		const sidebar = (
+ 		const { cards } = this.state
+ 		const card = (
  			<View>
- 			{posts.map((post) =>
- 				<Text key={post.id}>
- 				{post.title}
- 				</Text>
+ 			{cards.map((item, index) =>
+ 				<AtCard isFull note={item.note} extra={item.extra} title={item.title} thumb={item.thumb} key={index}>
+ 				这也是内容区 可以随意定义功能{index}
+ 				</AtCard>
  				)}
- 				</View>
- 				)
- 			const content = posts.map((post) => {
- 				return <View key={post.id}>
- 				<Text>{post.title}</Text>
- 				<Text>{post.content}</Text>
- 				</View>
- 			})
+ 			</View>
+ 			)
  			return (
- 			<View>
- 			{sidebar}
- 			<View className="divider" />
- 			{content}
+ 			<View >
+ 			{card}
  			</View>
  			)
  		}
