@@ -8,8 +8,58 @@
 		"es6": false,
 		"postcss": false,
 		"minified": false,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "find",
+					"pathName": "pages/find/find",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "mine",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"scene": null
+				}
+			]
+		}
+	}
 }

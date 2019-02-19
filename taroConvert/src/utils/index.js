@@ -1,20 +1,24 @@
 import Taro from '@tarojs/taro'
-
+import { AtToast } from "taro-ui"
 let baseUrl = 'https://www.yuque.com/api/v2/';
 let headers = {
 	'Content-Type': 'application/x-www-form-urlencoded',
-	'X-Auth-Token': '323223'
+	'X-Auth-Token': 'token'
 };
 
 function request(options) {
 	return new Promise((resolve, reject) => {
 		let url = baseUrl + options.url;
 		let method = options.method || 'GET';
+		wx.showLoading();
 		Taro.request({
 			url: url,
 			header: headers,
 			data: options.data || {},
-		}).then(res=> resolve(formatResponse(res))).catch(err=>reject(err));
+		}).then(res=> {
+			wx.hideLoading();
+			resolve(formatResponse(res))
+		}).catch(err=>reject(err));
 	})
 }
 

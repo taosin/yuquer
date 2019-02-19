@@ -11,7 +11,7 @@ class App extends Taro.Component {
 
   componentWillMount() {
     this.$app.globalData = this.globalData
-    https.request({url:'users/taoxin'}).then(res=>{
+    https.request({url:'user'}).then(res=>{
       console.log(res);
     });
   }

@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2019-02-15 18:08:23
 * @Last Modified by:   iMocco
-* @Last Modified time: 2019-02-15 18:46:50
+* @Last Modified time: 2019-02-19 16:31:47
 */
 import { Block, View, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
@@ -21,6 +21,9 @@ class _C extends Taro.Component {
 			]
 		}
 	}
+	config = {
+ 		navigationBarTitleText: '知识库'
+ 	}
 	handleClick(value) {
 		this.setState({
 			current: value

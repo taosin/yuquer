@@ -18,7 +18,7 @@ class _C extends Taro.Component {
     }
   }
   componentDidMount() {
-    this.getMyDocs();
+    // this.getMyDocs();
   }
   handleClick(value) {
     this.setState({

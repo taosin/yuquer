@@ -19,7 +19,9 @@ class _C extends Taro.Component {
   }
 
   render() {
-    return <View className="index">dadaad</View>
+    return (<View className="index">
+      
+    </View>)
   }
 }
 
