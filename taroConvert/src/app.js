@@ -11,15 +11,17 @@ class App extends Taro.Component {
 
   componentWillMount() {
     this.$app.globalData = this.globalData
-    https.request({url:'users/taoxin'});
+    https.request({url:'users/taoxin'}).then(res=>{
+      console.log(res);
+    });
   }
   config = {
     pages: [
-      'pages/index/index',
-      'pages/mine/mine',
-      'pages/login/login',
-      'pages/dashboard/dashboard',
-      'pages/find/find',
+    'pages/index/index',
+    'pages/mine/mine',
+    'pages/login/login',
+    'pages/dashboard/dashboard',
+    'pages/find/find',
     ],
     window: {
       navigationBarTextStyle: 'black',
@@ -34,30 +36,30 @@ class App extends Taro.Component {
       borderStyle: 'black',
       backgroundColor: '#ffffff',
       list: [
-        {
-          pagePath: 'pages/index/index',
-          iconPath: 'images/icon_component.png',
-          selectedIconPath: 'images/icon_component_HL.png',
-          text: '文档'
-        },
-        {
-          pagePath: 'pages/dashboard/dashboard',
-          iconPath: 'images/icon_API.png',
-          selectedIconPath: 'images/icon_API_HL.png',
-          text: '工作台'
-        },
-        {
-          pagePath: 'pages/find/find',
-          iconPath: 'images/icon_API.png',
-          selectedIconPath: 'images/icon_API_HL.png',
-          text: '发现'
-        },
-        {
-          pagePath: 'pages/mine/mine',
-          iconPath: 'images/icon_API.png',
-          selectedIconPath: 'images/icon_API_HL.png',
-          text: '我的'
-        }
+      {
+        pagePath: 'pages/index/index',
+        iconPath: 'images/icon_component.png',
+        selectedIconPath: 'images/icon_component_HL.png',
+        text: '文档'
+      },
+      {
+        pagePath: 'pages/dashboard/dashboard',
+        iconPath: 'images/icon_API.png',
+        selectedIconPath: 'images/icon_API_HL.png',
+        text: '工作台'
+      },
+      {
+        pagePath: 'pages/find/find',
+        iconPath: 'images/icon_API.png',
+        selectedIconPath: 'images/icon_API_HL.png',
+        text: '发现'
+      },
+      {
+        pagePath: 'pages/mine/mine',
+        iconPath: 'images/icon_API.png',
+        selectedIconPath: 'images/icon_API_HL.png',
+        text: '我的'
+      }
       ]
     }
   }

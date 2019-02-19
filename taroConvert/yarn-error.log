@@ -1,0 +1,91 @@
+Arguments: 
+  /usr/local/bin/node /Users/iMocco/.yarn/bin/yarn.js add @/utils/index.js --silent --no-progress
+
+PATH: 
+  /usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/iMocco/mygithub/kissfire/taroConvert/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/iMocco/mygithub/kissfire/taroConvert/node_modules/.bin:/Users/iMocco/.yarn/bin:/Users/iMocco/.config/yarn/global/node_modules/.bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/iMocco/apache-maven-3.3.9/bin
+
+Yarn version: 
+  1.10.1
+
+Node version: 
+  8.10.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.npmjs.org/@%2futils/index.js: Not found
+      at Request.params.callback [as _callback] (/Users/iMocco/.yarn/lib/cli.js:61073:18)
+      at Request.self.callback (/Users/iMocco/.yarn/lib/cli.js:120166:22)
+      at emitTwo (events.js:126:13)
+      at Request.emit (events.js:214:7)
+      at Request.<anonymous> (/Users/iMocco/.yarn/lib/cli.js:121138:10)
+      at emitOne (events.js:116:13)
+      at Request.emit (events.js:211:7)
+      at IncomingMessage.<anonymous> (/Users/iMocco/.yarn/lib/cli.js:121060:12)
+      at Object.onceWrapper (events.js:313:30)
+      at emitNone (events.js:111:20)
+
+npm manifest: 
+  {
+    "name": "taroConvert",
+    "version": "1.0.0",
+    "private": true,
+    "description": "",
+    "scripts": {
+      "build:weapp": "taro build --type weapp",
+      "build:swan": "taro build --type swan",
+      "build:alipay": "taro build --type alipay",
+      "build:tt": "taro build --type tt",
+      "build:h5": "taro build --type h5",
+      "build:rn": "taro build --type rn",
+      "dev:weapp": "npm run build:weapp -- --watch",
+      "dev:swan": "npm run build:swan -- --watch",
+      "dev:alipay": "npm run build:alipay -- --watch",
+      "dev:tt": "npm run build:tt -- --watch",
+      "dev:h5": "npm run build:h5 -- --watch",
+      "dev:rn": "npm run build:rn -- --watch"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+      "@tarojs/components": "1.2.12",
+      "@tarojs/router": "1.2.12",
+      "@tarojs/taro": "1.2.12",
+      "@tarojs/taro-alipay": "1.2.12",
+      "@tarojs/taro-h5": "1.2.12",
+      "@tarojs/taro-swan": "1.2.12",
+      "@tarojs/taro-tt": "1.2.12",
+      "@tarojs/taro-weapp": "1.2.12",
+      "@tarojs/with-weapp": "^1.2.12",
+      "nerv-devtools": "^1.3.9",
+      "nervjs": "^1.3.9",
+      "taro-ui": "^2.0.0"
+    },
+    "devDependencies": {
+      "@types/react": "^16.4.6",
+      "@types/webpack-env": "^1.13.6",
+      "@tarojs/plugin-babel": "1.2.12",
+      "@tarojs/plugin-csso": "1.2.12",
+      "@tarojs/plugin-sass": "1.2.12",
+      "@tarojs/plugin-uglifyjs": "1.2.12",
+      "@tarojs/webpack-runner": "1.2.12",
+      "babel-plugin-transform-class-properties": "^6.24.1",
+      "babel-plugin-transform-decorators-legacy": "^1.3.4",
+      "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
+      "babel-plugin-transform-object-rest-spread": "^6.26.0",
+      "babel-preset-env": "^1.6.1",
+      "babel-eslint": "^8.2.3",
+      "eslint": "^4.19.1",
+      "eslint-config-taro": "1.2.12",
+      "eslint-plugin-react": "^7.8.2",
+      "eslint-plugin-import": "^2.12.0",
+      "eslint-plugin-taro": "1.2.12"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

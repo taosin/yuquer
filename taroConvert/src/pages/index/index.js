@@ -3,6 +3,7 @@ import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
 import { AtTabs, AtTabsPane, AtList, AtListItem } from 'taro-ui'
 import './index.scss'
+import https from './../../utils/index.js'
 @withWeapp('Page')
 class _C extends Taro.Component {
   constructor() {
@@ -12,12 +13,47 @@ class _C extends Taro.Component {
       tabList: [
       { value: 'recent-updated', title: '最近编辑的' },
       { value: 'recent-updated', title: '我创建的' }
-      ]
+      ],
+      dataList: []
     }
+  }
+  componentDidMount() {
+    this.getMyDocs();
   }
   handleClick(value) {
     this.setState({
       current: value
+    })
+    if (value) {
+      this.getRecentlyDocs()
+    } else {
+      this.getMyDocs()
+    }
+  }
+  getMyDocs() {
+    let params = {};
+    params.url = 'user/docs'
+    params.data = {
+      offset: 0
+    };
+    this.getDocsDatas(params);
+  }
+  getRecentlyDocs() {
+    let params = {};
+    params.url = 'user/recent-updated'
+    params.data = {
+      offset: 0,
+      type: 'Doc'
+    };
+    this.getDocsDatas(params);
+  }
+  getDocsDatas(params) {
+    https.request(params).then(res => {
+      if (res.code === 200) {
+        this.setState({
+          dataList: res.data
+        })
+      }
     })
   }
   render() {
@@ -27,93 +63,13 @@ class _C extends Taro.Component {
         <AtTabsPane current={this.state.current} index={index} key={index}>
         <View>
         <AtList>
-        <AtListItem
-        title='标题文字'
-        arrow='right'
-        thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
-        />
-        <AtListItem
-        title='标题文字'
-        note='描述信息'
-        arrow='right'
-        thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
-        />
-        <AtListItem
-        title='标题文字'
-        note='描述信息'
-        extraText='详细信息'
-        arrow='right'
-        thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
-        />
-        <AtListItem
-        title='标题文字'
-        arrow='right'
-        thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
-        />
-        <AtListItem
-        title='标题文字'
-        note='描述信息'
-        arrow='right'
-        thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
-        />
-        <AtListItem
-        title='标题文字'
-        note='描述信息'
-        extraText='详细信息'
-        arrow='right'
-        thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
-        /><AtListItem
-        title='标题文字'
-        arrow='right'
-        thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
-        />
-        <AtListItem
-        title='标题文字'
-        note='描述信息'
-        arrow='right'
-        thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
-        />
-        <AtListItem
-        title='标题文字'
-        note='描述信息'
-        extraText='详细信息'
-        arrow='right'
-        thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
-        /><AtListItem
-        title='标题文字'
-        arrow='right'
-        thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
-        />
-        <AtListItem
-        title='标题文字'
-        note='描述信息'
-        arrow='right'
-        thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
-        />
-        <AtListItem
-        title='标题文字'
-        note='描述信息'
-        extraText='详细信息'
-        arrow='right'
-        thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
-        /><AtListItem
-        title='标题文字'
-        arrow='right'
-        thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
-        />
-        <AtListItem
-        title='标题文字'
-        note='描述信息'
-        arrow='right'
-        thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
-        />
-        <AtListItem
-        title='标题文字'
-        note='描述信息'
-        extraText='详细信息'
-        arrow='right'
-        thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
-        />
+        {dataList.map((item,i) => 
+          <AtListItem
+          key={item.book_id}
+          title={item.title}
+          arrow='right'
+          />
+          )}
         </AtList>
         </View>
         </AtTabsPane>
