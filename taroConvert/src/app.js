@@ -20,8 +20,8 @@ class App extends Taro.Component {
     'pages/index/index',
     'pages/mine/mine',
     'pages/login/login',
-    'pages/dashboard/dashboard',
-    'pages/find/find',
+    'pages/book/book',
+    'pages/team/team',
     ],
     window: {
       navigationBarTextStyle: 'black',
@@ -43,16 +43,16 @@ class App extends Taro.Component {
         text: '文档'
       },
       {
-        pagePath: 'pages/dashboard/dashboard',
+        pagePath: 'pages/book/book',
         iconPath: 'images/icon_API.png',
         selectedIconPath: 'images/icon_API_HL.png',
-        text: '工作台'
+        text: '知识库'
       },
       {
-        pagePath: 'pages/find/find',
+        pagePath: 'pages/team/team',
         iconPath: 'images/icon_API.png',
         selectedIconPath: 'images/icon_API_HL.png',
-        text: '发现'
+        text: '团队'
       },
       {
         pagePath: 'pages/mine/mine',
