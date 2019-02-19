@@ -2,13 +2,13 @@
  * @Author: iMocco
  * @Date:   2019-02-15 18:08:23
  * @Last Modified by:   iMocco
- * @Last Modified time: 2019-02-19 15:30:56
+ * @Last Modified time: 2019-02-19 17:05:20
  */
  import { Block, View, Text } from '@tarojs/components'
  import Taro from '@tarojs/taro'
  import withWeapp from '@tarojs/with-weapp'
  import { AtCard } from 'taro-ui'
- import './find.scss'
+ import './team.scss'
  import https from './../../utils/index.js'
  @withWeapp('Page')
  class _C extends Taro.Component {
@@ -37,40 +37,29 @@
  	}
  	getRecentlyDocs() {
  		let params = {};
- 		params.url = 'spaces/books'
+ 		params.url = 'user/recent-updated'
  		params.data = {
- 			type: 'popular'
+ 			offset: 0,
+ 			type: 'Book'
  		};
- 		// this.getDocsDatas(params);
+ 		this.getDocsDatas(params);
  	}
  	getDocsDatas(params) {
  		https.request(params).then(res => {
  			if (res.code === 200) {
-
  				this.setState({
  					dataList: res.data
  				})
- 				debugger 
  			}
  		})
  	}
  	render() {
- 		const { cards } = this.state
- 		const card = (
+ 		return (
  			<View>
- 			{cards.map((item, index) =>
- 				<AtCard isFull note={item.note} extra={item.extra} title={item.title} thumb={item.thumb} key={index}>
- 				这也是内容区 可以随意定义功能{index}
- 				</AtCard>
- 				)}
- 				</View>
- 				)
- 			return (
- 				<View >
- 				{card}
- 				</View>
- 				)
- 			}
+ 			团队
+ 			</View>
+ 			)
  		}
+ 	}
 
- 		export default _C
+ 	export default _C
