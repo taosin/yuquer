@@ -3,14 +3,15 @@ import { AtToast } from "taro-ui"
 let baseUrl = 'https://www.yuque.com/api/v2/';
 let headers = {
 	'Content-Type': 'application/x-www-form-urlencoded',
+	// 'User-Agent': 'YuQuer',
 	'X-Auth-Token': 'token'
 };
 
 function request(options) {
+	wx.showLoading();
 	return new Promise((resolve, reject) => {
 		let url = baseUrl + options.url;
 		let method = options.method || 'GET';
-		wx.showLoading();
 		Taro.request({
 			url: url,
 			header: headers,
@@ -54,7 +55,11 @@ function formatResponse(result) {
 	if(code === 200){
 		resData.data = result.data.data
 	}else{
-		resData.msg = msg
+		wx.showToast({
+			title: msg,
+			icon: 'none',
+			duration: 2000
+		})
 	}
 	return resData;
 }
