@@ -4,14 +4,21 @@ let baseUrl = 'https://www.yuque.com/api/v2/';
 let headers = {
 	'Content-Type': 'application/x-www-form-urlencoded',
 	// 'User-Agent': 'YuQuer',
-	'X-Auth-Token': 'token'
 };
-
+let token = getStorage('yuque_token');
+if(token){
+	headers['X-Auth-Token'] = token
+}
 function request(options) {
 	wx.showLoading();
 	return new Promise((resolve, reject) => {
 		let url = baseUrl + options.url;
 		let method = options.method || 'GET';
+		// 如果 存在 options.token，则表示该次请求是用来授权
+		if(options.token){
+			headers['token'] = options.token
+		}
+
 		Taro.request({
 			url: url,
 			header: headers,
@@ -63,6 +70,35 @@ function formatResponse(result) {
 	}
 	return resData;
 }
+
+function getStorage(key){
+	wx.getStorage({
+		key: key,
+		success(res) {
+			return res.data
+		}
+	})
+}
+
+function setStorage(key, data){
+	wx.setStorage({
+		key: key,
+		data: data
+	})
+}
+
+function removeStorage(key){
+	setStorage(key, null)
+}
+
+function clearStorage(){
+	wx.clearStorage()
+}
+
 module.exports = {
-	request: request
+	request,
+	getStorage,
+	setStorage,
+	removeStorage,
+	clearStorage
 }

@@ -2,7 +2,7 @@ import { Block, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
 import { AtForm, AtInput, AtButton, AtMessage } from 'taro-ui'
-import https from '../../utils/index.js'
+import utils from '../../utils/index.js'
 import './login.scss'
 
 @withWeapp('Page')
@@ -44,8 +44,9 @@ class _C extends Taro.Component {
     this.getUserInfoByTokenAndUsername()
   }
   getUserInfoByTokenAndUsername(){
-    https.request({url:'user', token: this.state.token}).then(res=>{
+    utils.request({url:'user', token: this.state.token}).then(res=>{
       if(res.data.login === this.state.username){
+        utils.setStorage('yuque_token',this.state.token);
         Taro.atMessage({type:'success',message:'授权成功'})
       }else{
         Taro.atMessage({type:'error',message:'语雀授权失败，请检查参数后重新操作'})
@@ -76,6 +77,7 @@ class _C extends Taro.Component {
       name='token'
       title='Token'
       type='password'
+      maxLength={40}
       placeholder='请填写Access Token'
       value={this.state.token}
       onChange={this.handleChange.bind(this, 'token')}
