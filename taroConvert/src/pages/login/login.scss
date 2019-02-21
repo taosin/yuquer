@@ -1,3 +1,21 @@
 .index{
-	background: red;
+	width: 100%;
+	height: 100%;
+	padding-top: 10vh;
+	.login-control{
+		border-radius: 0rpx;
+		background: #fff;
+		margin-top: 100rpx;
+		margin-bottom: 100rpx;
+	}
+	.avator{
+		width:240rpx;
+		height:240rpx;
+	}
+	.at-article__h1,.at-article__h3{
+		margin: 0;
+	}
+	.submit-btn{
+		width: 80vw;
+	}
 }

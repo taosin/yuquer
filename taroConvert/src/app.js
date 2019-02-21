@@ -2,7 +2,7 @@ import { Block } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
 import './app.scss'
-import https from './utils/index.js'
+// import https from './utils/index.js'
 
 class App extends Taro.Component {
   state = {
@@ -11,9 +11,9 @@ class App extends Taro.Component {
 
   componentWillMount() {
     this.$app.globalData = this.globalData
-    https.request({url:'user'}).then(res=>{
-      console.log(res);
-    });
+    // https.request({url:'user'}).then(res=>{
+    //   console.log(res);
+    // });
   }
   config = {
     pages: [
