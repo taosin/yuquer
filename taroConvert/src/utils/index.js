@@ -5,10 +5,11 @@ let headers = {
 	'Content-Type': 'application/x-www-form-urlencoded',
 	// 'User-Agent': 'YuQuer',
 };
-let token = getStorage('yuque_token');
+let token = wx.getStorageSync('yuque_token');
 if(token){
 	headers['X-Auth-Token'] = token
 }
+console.log(token);
 function request(options) {
 	wx.showLoading();
 	return new Promise((resolve, reject) => {
@@ -71,15 +72,6 @@ function formatResponse(result) {
 	return resData;
 }
 
-function getStorage(key){
-	wx.getStorage({
-		key: key,
-		success(res) {
-			return res.data
-		}
-	})
-}
-
 function setStorage(key, data){
 	wx.setStorage({
 		key: key,
@@ -97,7 +89,6 @@ function clearStorage(){
 
 module.exports = {
 	request,
-	getStorage,
 	setStorage,
 	removeStorage,
 	clearStorage

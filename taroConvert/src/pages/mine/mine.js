@@ -8,13 +8,14 @@ import './mine.scss'
 class _C extends Taro.Component {
   state = {
     hasUserLogin: false,
-    userInfo: false
+    userInfo: {}
   }
 
   componentWillMount() {
-    // if (app.globalData.hasLogin === true){
-      // this.gotoLogin()
-    // }
+    this.setState({
+      userInfo: wx.getStorageSync('userInfo') || {},
+      hasUserLogin: wx.getStorageSync('userInfo').login ? true: false
+    })
   }
 
   gotoLogin = () => {
@@ -44,15 +45,12 @@ class _C extends Taro.Component {
         <AtButton circle type='primary' className='login-btn' onClick={this.gotoLogin}>Login</AtButton>
         </View>
         )}
+        </View>
       {hasUserLogin === true && (
         <Block>
-        <View className="userinfo">
-        <Image className="userinfo-avatar" src={userInfo.avatarUrl} />
-        <Text className="userinfo-nickname">{userInfo.nickName}</Text>
-        </View>
+          你已登录
         </Block>
         )}
-        </View>
         </View>
         )
       }
