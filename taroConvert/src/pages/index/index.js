@@ -23,12 +23,13 @@ class _C extends Taro.Component {
   handleClick(value) {
     this.setState({
       current: value
+    },() =>{
+      if (value) {
+        this.getRecentlyDocs()
+      } else {
+        this.getMyDocs()
+      }
     })
-    if (value) {
-      this.getRecentlyDocs()
-    } else {
-      this.getMyDocs()
-    }
   }
   getMyDocs() {
     let params = {};
@@ -74,8 +75,8 @@ class _C extends Taro.Component {
         </View>
         </AtTabsPane>
         )}
-        </AtTabs>
-        )
+      </AtTabs>
+      )
     }
   }
 
