@@ -5,17 +5,34 @@ import './app.scss'
 import utils from './utils/index.js'
 
 class App extends Taro.Component {
-  state = {
-    hasUserLogin: false
+  constructor(props){
+    super(props);
+    this.state = {
+      hasUserLogin: false
+    }
   }
 
   componentWillMount() {
     this.$app.globalData = this.globalData
     utils.request({url:'user'}).then(res=>{
-      if(res.data.login){
+      if(res.code === 200 && res.data.login){
         utils.setStorage('userInfo',res.data);
-     }
-   });
+        this.setState({
+          hasUserLogin: true
+        })
+      }else{
+        utils.setStorage('userInfo',{});
+        this.setState({
+          hasUserLogin: false
+        })
+      }
+      // if(!this.hasUserLogin){
+      //   Taro.navigateTo({
+      //     url: 'pages/login/login'
+      //   })
+      // }
+    });
+
   }
   config = {
     pages: [

@@ -26,7 +26,7 @@ function request(options) {
 		}).then(res=> {
 			wx.hideLoading();
 			resolve(formatResponse(res))
-		}).catch(err=>reject(err));
+		})
 	})
 }
 
@@ -43,7 +43,7 @@ function formatResponse(result) {
 		case 401:
 		msg = '用户Token不正确'
 		break;
-		case 401:
+		case 402:
 		msg = '缺少对应功能的权限'
 		break;
 		case 404:
@@ -65,8 +65,13 @@ function formatResponse(result) {
 		wx.showToast({
 			title: msg,
 			icon: 'none',
-			duration: 2000
+			duration: 1500
 		})
+		setTimeout(()=>{
+			Taro.navigateTo({
+				url: '/pages/login/login'
+			})
+		},1400)
 	}
 	return resData;
 }
