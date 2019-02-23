@@ -45,9 +45,12 @@ class _C extends Taro.Component {
   }
   getUserInfoByTokenAndUsername(){
     utils.request({url:'user', token: this.state.token}).then(res=>{
-      if(res.data.login === this.state.username){
+      if(res.data.login === this.state.username.toLowerCase()){
         utils.setStorage('yuque_token',this.state.token);
         Taro.atMessage({type:'success',message:'授权成功'})
+        setTimeout(()=>{
+          Taro.navigateBack()
+        }, 1000)
       }else{
         Taro.atMessage({type:'error',message:'语雀授权失败，请检查参数后重新操作'})
       }
