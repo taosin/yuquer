@@ -17,9 +17,8 @@ function request(options) {
 		let method = options.method || 'GET';
 		// 如果 存在 options.token，则表示该次请求是用来授权
 		if(options.token){
-			headers['token'] = options.token
+			headers['X-Auth-Token'] = options.token
 		}
-
 		Taro.request({
 			url: url,
 			header: headers,
