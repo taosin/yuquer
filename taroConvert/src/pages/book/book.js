@@ -28,11 +28,7 @@ class _C extends Taro.Component {
 
 	getRecentlyDocs() {
 		let params = {};
-		params.url = 'user/recent-updated'
-		params.data = {
-			offset: 0,
-			type: 'Book'
-		};
+		params.url = 'users/taoxin/repos'
 		this.getDocsDatas(params);
 	}
 	getDocsDatas(params) {

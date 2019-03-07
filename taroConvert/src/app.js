@@ -41,6 +41,7 @@ class App extends Taro.Component {
     'pages/login/login',
     'pages/book/book',
     'pages/team/team',
+    'pages/content/content',
     ],
     window: {
       navigationBarTextStyle: 'black',
@@ -65,7 +66,7 @@ class App extends Taro.Component {
         pagePath: 'pages/book/book',
         iconPath: 'images/icon_API.png',
         selectedIconPath: 'images/icon_API_HL.png',
-        text: '知识库'
+        text: '仓库'
       },
       {
         pagePath: 'pages/team/team',

@@ -25,7 +25,10 @@ class _C extends Taro.Component {
     })
   }
   config = {
-    navigationBarTitleText: '我的'
+    navigationBarTitleText: '我的',
+    usingComponents: {
+      'user-info': '../../Components/user/user'
+    }
   }
 
   render() {
@@ -45,15 +48,16 @@ class _C extends Taro.Component {
         <AtButton circle type='primary' className='login-btn' onClick={this.gotoLogin}>Login</AtButton>
         </View>
         )}
-        </View>
+      </View>
       {hasUserLogin === true && (
         <Block>
-          你已登录
+        你已登录
+        <user-info name='aaddqdq'/>
         </Block>
         )}
         </View>
         )
-      }
     }
+  }
 
-    export default _C
+  export default _C
