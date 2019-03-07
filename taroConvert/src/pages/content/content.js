@@ -1,4 +1,4 @@
-import { Block, View, Text } from '@tarojs/components'
+import { Block, View, Text, RichText } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
 import { AtTabs, AtTabsPane, AtList, AtListItem } from 'taro-ui'
@@ -45,7 +45,8 @@ class _C extends Taro.Component {
   render() {
     return (
       <View>
-        {content.body_html}
+        <rich-text nodes={content.body_html}>
+        </rich-text>
       </View>
       )
     }
