@@ -57,6 +57,11 @@ class _C extends Taro.Component {
       }
     })
   }
+  clickItem(item){
+    Taro.navigateTo({
+      url: `/pages/content/content?namespace=${item.book.namespace}&doc=${item.slug}`
+    })
+  }
   render() {
     return (
       <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
@@ -65,10 +70,11 @@ class _C extends Taro.Component {
         <View>
         <AtList>
         {dataList.map((item,i) => 
-          <AtListItem
-          key={item.book_id}
+          <AtListItem className="articl-item"
+          key={item.slug}
           title={item.title}
           arrow='right'
+          onClick={this.clickItem.bind(this,item)}
           />
           )}
         </AtList>
