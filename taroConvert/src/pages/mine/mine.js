@@ -1,6 +1,6 @@
 import { Block, View, Text, Image, Navigator } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import { AtButton, AtAvatar } from 'taro-ui'
+import { AtButton, AtAvatar} from 'taro-ui'
 import withWeapp from '@tarojs/with-weapp'
 import './mine.scss'
 
@@ -27,36 +27,35 @@ class _C extends Taro.Component {
   config = {
     navigationBarTitleText: '我的',
     usingComponents: {
-      'user-info': '../../Components/user/user'
     }
   }
 
   render() {
     const { hasUserLogin: hasUserLogin, userInfo: userInfo } = this.state
     return (
-      <View className="index at-row at-row__align--center at-row__justify--center">
-      <View className="user-info at-row at-col at-row__align--center">
-      {hasUserLogin === false && (
-        <View>
-        <Image class='avator' src='https://gw.alipayobjects.com/zos/rmsportal/kyjrtmqaKAvzJAaoZfFp.svg'></Image>
-        <View className='at-article__h1'>
-        欢迎回到语雀
+      <View className="index">
+        <View className="user-info">
+          <View className="name-avatar at-row at-row__justify--center">
+            <AtAvatar circle image={userInfo.avatar_url} size="large" className="at-col"></AtAvatar>
+          </View>
+          <Text className="user-name at-row at-row__justify--center">
+            {userInfo.name}
+          </Text>
         </View>
-        <View className='at-article__h3'>
-        写文档，就用语雀
+        <View className="user-follows">
+          <View className="at-row">
+            <View className="at-col at-col-6 follow at-row at-row__justify--center">
+              <Text className="at-col title">关注了</Text>
+              <Text className="at-col count">{userInfo.followers_count}</Text>
+            </View>
+            <View className="at-col at-col-6 follow at-row at-row__justify--center">
+              <Text className="at-col title">关注者</Text>
+              <Text className="at-col count">{userInfo.following_count}</Text>
+            </View>
+          </View>
         </View>
-        <AtButton circle type='primary' className='login-btn' onClick={this.gotoLogin}>Login</AtButton>
-        </View>
-        )}
       </View>
-      {hasUserLogin === true && (
-        <Block>
-        你已登录
-        <user-info name='aaddqdq'/>
-        </Block>
-        )}
-        </View>
-        )
+      )
     }
   }
 

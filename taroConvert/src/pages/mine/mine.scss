@@ -6,21 +6,37 @@
 */
 
 .index {
-    width: 100%;
-    margin-top: 200rpx;
-    .user-info {
-        padding: 20rpx;
-        text-align: center;
-        .avator {
-            width: 240rpx;
-            height: 240rpx;
-        }
+  background: #ebebeb;
+  width: 100%;
+
+  .user-info {
+    padding: 40rpx 0;
+    background: #fff;
+
+    .name-avatar {
+      text-align: center;
     }
-    .at-article__h1,
-    .at-article__h3 {
-        margin: 0;
+  }
+
+  .user-follows {
+    background: #fff;
+    border-bottom: 1rpx solid #ebebeb;
+    padding: 30rpx 0;
+
+    .follow {
+      text-align: center;
+
+      .title {
+        color: rgb(140, 140, 140);
+      }
+      .count {
+        font-size: 50rpx;
+        font-weight: bold;
+        color: rgb(89, 89, 89);
+      }
     }
-    .login-btn {
-        margin-top: 60rpx;
+    .follow:first-child{
+        border-right: 1px solid #ebebeb;
     }
+  }
 }
