@@ -78,7 +78,7 @@ class _C extends Taro.Component {
   }
   render() {
     return (
-      <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
+      <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)} swipeable={false}>
       {tabList.map((post,index) =>
         <AtTabsPane current={this.state.current} index={index} key={index}>
         <View>
