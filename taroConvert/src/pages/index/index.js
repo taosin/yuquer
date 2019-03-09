@@ -52,14 +52,28 @@ class _C extends Taro.Component {
     https.request(params).then(res => {
       if (res.code === 200) {
         this.setState({
-          dataList: res.data
+          dataList: this.formatRes(res.data)
         })
       }
     })
   }
+  formatRes(res){
+    let len = res.length;
+    if(!len) return;
+    let datas = [];
+    res.forEach(item =>{
+      let data = {};
+      data.title = item.title;
+      data.slug = item.slug;
+      data.extra = item.book.user.name + ' / ' + item.book.name
+      data.namespace = item.book.namespace
+      datas.push(data)
+    })
+    return datas;
+  }
   clickItem(item){
     Taro.navigateTo({
-      url: `/pages/content/content?namespace=${item.book.namespace}&doc=${item.slug}`
+      url: `/pages/content/content?namespace=${item.namespace}&doc=${item.slug}`
     })
   }
   render() {
@@ -73,7 +87,8 @@ class _C extends Taro.Component {
           <AtListItem className="articl-item"
           key={item.slug}
           title={item.title}
-          arrow='right'
+          note={item.extra}
+          thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
           onClick={this.clickItem.bind(this,item)}
           />
           )}

@@ -66,7 +66,7 @@ class App extends Taro.Component {
         pagePath: 'pages/book/book',
         iconPath: 'images/icon_API.png',
         selectedIconPath: 'images/icon_API_HL.png',
-        text: '仓库'
+        text: '知识库'
       },
       {
         pagePath: 'pages/team/team',
