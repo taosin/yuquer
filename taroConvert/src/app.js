@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
 import './app.scss'
 import utils from './utils/index.js'
-
+wx.cloud.init()
 class App extends Taro.Component {
   constructor(props){
     super(props);
@@ -58,26 +58,26 @@ class App extends Taro.Component {
       list: [
       {
         pagePath: 'pages/index/index',
-        iconPath: 'images/icon_component.png',
-        selectedIconPath: 'images/icon_component_HL.png',
+        iconPath: 'images/document.png',
+        selectedIconPath: 'images/document_select.png',
         text: '文档'
       },
       {
         pagePath: 'pages/book/book',
-        iconPath: 'images/icon_API.png',
-        selectedIconPath: 'images/icon_API_HL.png',
+        iconPath: 'images/book.png',
+        selectedIconPath: 'images/book_select.png',
         text: '知识库'
       },
       {
         pagePath: 'pages/team/team',
-        iconPath: 'images/icon_API.png',
-        selectedIconPath: 'images/icon_API_HL.png',
+        iconPath: 'images/team.png',
+        selectedIconPath: 'images/team_select.png',
         text: '团队'
       },
       {
         pagePath: 'pages/mine/mine',
-        iconPath: 'images/icon_API.png',
-        selectedIconPath: 'images/icon_API_HL.png',
+        iconPath: 'images/my.png',
+        selectedIconPath: 'images/my_select.png',
         text: '我的'
       }
       ]

@@ -1,7 +1,7 @@
 import { Block, View, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
-import { AtTabs, AtTabsPane, AtList, AtListItem } from 'taro-ui'
+import { AtTabs, AtTabsPane, AtList, AtListItem, AtDivider } from 'taro-ui'
 import './index.scss'
 import https from './../../utils/index.js'
 @withWeapp('Page')
@@ -81,7 +81,8 @@ class _C extends Taro.Component {
       <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)} swipeable={false}>
       {tabList.map((post,index) =>
         <AtTabsPane current={this.state.current} index={index} key={index}>
-        <View>
+        {dataList.length
+        ?<View>
         <AtList>
         {dataList.map((item,i) => 
           <AtListItem className="articl-item"
@@ -94,6 +95,10 @@ class _C extends Taro.Component {
           )}
         </AtList>
         </View>
+        :<View>
+            <AtDivider content='暂无数据' />
+          </View>
+        }
         </AtTabsPane>
         )}
       </AtTabs>
