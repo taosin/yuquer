@@ -45,8 +45,7 @@ class _C extends Taro.Component {
   render() {
     return (
       <View>
-        <rich-text nodes={content.body_html}>
-        </rich-text>
+        {content.body_lake}
       </View>
       )
     }

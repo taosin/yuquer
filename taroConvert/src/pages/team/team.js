@@ -42,8 +42,15 @@
  	}
  	render() {
  		return (
- 			<View>
- 			团队
+ 			<View className="team-view">
+				 <View className="team-list">
+						{dataList.map((item,i)=>
+							<View className="team-item" key={i}>
+								<AtAvatar circle image={item.avatar_url} size="large"></AtAvatar>
+							{item.name}{item.members_count}
+							</View>
+							)}
+				 </View>
  			</View>
  			)
  		}

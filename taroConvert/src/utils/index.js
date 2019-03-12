@@ -68,6 +68,8 @@ function formatResponse(result) {
 			duration: 1500
 		})
 		setTimeout(()=>{
+			console.log(Taro.getCurrentPages());
+			
 			Taro.navigateTo({
 				url: '/pages/login/login'
 			})
