@@ -3,37 +3,13 @@
 .index{
 	background: #fbf9fe;
 	height: 100%;
-	padding: 0 0 20px 0;
 }
 
-.kind-lists{
-	background: #fff;
-	padding: 10px 0 10px 10px;
+.title-bar{
+	position: fixed;
+	width: 100%;
+	top:0;
 }
-.kind-list{
-	font-size: 10pt;
-	border-bottom: 1px solid #ddd;
-	padding: 10px 30px 0 10px;
-	clear: both;
-	height: 80px;
-}
-.kind-list:last-child{
-	border: none;
-}
-.date{
-	font-size: 10pt;
-	color: #888;
-	padding: 10px 40px;
-}
-.text-left{
-	float: left;
-}
-.text-right{
-	float: right;
-}
-.articl-item{
-	height: 120rpx;
-}
-.at-list__item-content{
-	margin-right: 0;
+.item-list{
+	margin-top: 100px;
 }

@@ -1,9 +1,14 @@
 import { Block, View, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
-import { AtTabs, AtTabsPane, AtList, AtListItem, AtDivider } from 'taro-ui'
+import { AtTabs, AtTabsPane, AtList, AtListItem, AtDivider, AtNavBar } from 'taro-ui'
+
+import TitleBar from './../../components/titleBar/index'
+import ItemList from './../../components/itemList/index'
 import './index.scss'
+
 import https from './../../utils/index.js'
+import { formatTime } from './../../utils/util.js'
 @withWeapp('Page')
 class _C extends Taro.Component {
   constructor() {
@@ -11,25 +16,14 @@ class _C extends Taro.Component {
     this.state = {
       current: 0,
       tabList: [
-      { value: 'recent-updated', title: '最近编辑的' },
-      { value: 'recent-updated', title: '我创建的' }
+      { title: '最近编辑的' },
+      { title: '我创建的' }
       ],
       dataList: []
     }
   }
   componentDidMount() {
-    // this.getMyDocs();
-  }
-  handleClick(value) {
-    this.setState({
-      current: value
-    },() =>{
-      if (value) {
-        this.getRecentlyDocs()
-      } else {
-        this.getMyDocs()
-      }
-    })
+    this.getMyDocs();
   }
   getMyDocs() {
     let params = {};
@@ -67,6 +61,9 @@ class _C extends Taro.Component {
       data.slug = item.slug;
       data.extra = item.book.user.name + ' / ' + item.book.name
       data.namespace = item.book.namespace
+      data.time = formatTime(item.updated_at)
+      data.description = item.description
+      data.status = item.status
       datas.push(data)
     })
     return datas;
@@ -76,32 +73,28 @@ class _C extends Taro.Component {
       url: `/pages/content/content?namespace=${item.namespace}&doc=${item.slug}`
     })
   }
+
+  onTabChange(index) {
+    this.setState({
+      current: index
+    },() =>{
+      if (index) {
+        this.getRecentlyDocs()
+      } else {
+        this.getMyDocs()
+      }
+    })
+  }
   render() {
     return (
-      <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)} swipeable={false}>
-      {tabList.map((post,index) =>
-        <AtTabsPane current={this.state.current} index={index} key={index}>
-        {dataList.length
-        ?<View>
-        <AtList>
-        {dataList.map((item,i) => 
-          <AtListItem className="articl-item"
-          key={item.slug}
-          title={item.title}
-          note={item.extra}
-          thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
-          onClick={this.clickItem.bind(this,item)}
-          />
-          )}
-        </AtList>
-        </View>
-        :<View>
-            <AtDivider content='暂无数据' />
-          </View>
-        }
-        </AtTabsPane>
-        )}
-      </AtTabs>
+      <View className='index'>
+      <View className='title-bar'>
+        <TitleBar tabList={tabList} current={current} onTabChange={this.onTabChange}/>
+      </View>
+      <View className='item-list'>
+        <ItemList itemList={dataList}/>
+      </View>
+      </View>
       )
     }
   }

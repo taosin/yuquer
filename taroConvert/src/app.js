@@ -46,7 +46,7 @@ class App extends Taro.Component {
     window: {
       navigationBarTextStyle: 'black',
       navigationBarTitleText: 'YuQuer',
-      navigationBarBackgroundColor: '#fdfdfd',
+      navigationBarBackgroundColor: '#fff',
       backgroundColor: '#fdfdfd'
     }
     ,
