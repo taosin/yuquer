@@ -58,14 +58,14 @@ class App extends Taro.Component {
       list: [
       {
         pagePath: 'pages/index/index',
-        iconPath: 'images/document.png',
-        selectedIconPath: 'images/document_select.png',
+        iconPath: 'images/wendang.png',
+        selectedIconPath: 'images/wendang-active.png',
         text: '文档'
       },
       {
         pagePath: 'pages/book/book',
-        iconPath: 'images/book.png',
-        selectedIconPath: 'images/book_select.png',
+        iconPath: 'images/cangku.png',
+        selectedIconPath: 'images/cangku-active.png',
         text: '知识库'
       },
       // {
@@ -76,8 +76,8 @@ class App extends Taro.Component {
       // },
       {
         pagePath: 'pages/mine/mine',
-        iconPath: 'images/my.png',
-        selectedIconPath: 'images/my_select.png',
+        iconPath: 'images/wode.png',
+        selectedIconPath: 'images/wode-active.png',
         text: '我的'
       }
       ]

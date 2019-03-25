@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2019-02-15 18:08:23
 * @Last Modified by:   iMocco
-* @Last Modified time: 2019-03-25 15:12:01
+* @Last Modified time: 2019-03-25 17:28:25
 */
 import { Block, View, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
@@ -20,7 +20,7 @@ class _C extends Taro.Component {
 		}
 	}
 	config = {
-		navigationBarTitleText: '仓库'
+		navigationBarTitleText: '知识库'
 	}
 	componentDidMount() {
 		this.getRecentlyDocs();
