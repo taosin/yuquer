@@ -68,12 +68,12 @@ class App extends Taro.Component {
         selectedIconPath: 'images/book_select.png',
         text: '知识库'
       },
-      {
-        pagePath: 'pages/team/team',
-        iconPath: 'images/team.png',
-        selectedIconPath: 'images/team_select.png',
-        text: '团队'
-      },
+      // {
+      //   pagePath: 'pages/team/team',
+      //   iconPath: 'images/team.png',
+      //   selectedIconPath: 'images/team_select.png',
+      //   text: '团队'
+      // },
       {
         pagePath: 'pages/mine/mine',
         iconPath: 'images/my.png',

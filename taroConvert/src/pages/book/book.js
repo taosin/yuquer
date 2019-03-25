@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2019-02-15 18:08:23
 * @Last Modified by:   iMocco
-* @Last Modified time: 2019-02-19 17:25:05
+* @Last Modified time: 2019-03-25 15:12:01
 */
 import { Block, View, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
@@ -20,7 +20,7 @@ class _C extends Taro.Component {
 		}
 	}
 	config = {
-		navigationBarTitleText: '知识库'
+		navigationBarTitleText: '仓库'
 	}
 	componentDidMount() {
 		this.getRecentlyDocs();
@@ -28,7 +28,16 @@ class _C extends Taro.Component {
 
 	getRecentlyDocs() {
 		let params = {};
-		params.url = 'users/taoxin/repos'
+		// params.url = 'users/taoxin/repos'
+		// params.data = {}
+		// params.data.include_membered = true
+		// params.data.type = 'all'
+		// params.data.offset = 0
+		params.url = 'user/recent-updated'
+		params.data = {
+			offset: 0,
+			type: 'Book'
+		};
 		this.getDocsDatas(params);
 	}
 	getDocsDatas(params) {

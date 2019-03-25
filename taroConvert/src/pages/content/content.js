@@ -2,9 +2,10 @@ import { Block, View, Text, RichText } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
 import { AtTabs, AtTabsPane, AtList, AtListItem } from 'taro-ui'
-import './index.scss'
+import './content.scss'
 import https from './../../utils/index.js'
-@withWeapp('Page')
+// import Towxml from '../../components/towxml/main'
+// let render = new Towxml()
 class _C extends Taro.Component {
   constructor() {
     super(...arguments)
@@ -34,18 +35,22 @@ class _C extends Taro.Component {
     this.getDocsDatas(params);
   }
   getDocsDatas(params) {
+    let that = this
     https.request(params).then(res => {
-      if (res.code === 200) {
-        this.setState({
-          content: res.data
-        })
-      }
+      let data = res.data.body_html;
+      // data = render.toJson(
+      //   res.data.body_html,'markdown'          
+      //   );
+      // data = render.initData(data, {base: null, app: this.$scope})
+      that.setState({
+        content: data
+      })
     })
   }
   render() {
     return (
       <View>
-        {content.body_lake}
+      dsadaads
       </View>
       )
     }
