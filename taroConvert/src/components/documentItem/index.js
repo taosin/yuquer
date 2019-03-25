@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2019-03-13 16:49:10
 * @Last Modified by:   iMocco
-* @Last Modified time: 2019-03-25 15:28:45
+* @Last Modified time: 2019-03-25 18:09:22
 */
 import Taro, { Component } from '@tarojs/taro'
 import PropTypes from 'prop-types';
@@ -32,7 +32,7 @@ export default class DocumentItem extends Component {
 		const {item} = this.props
 		return (
 			<View className='content' onClick={this.clickItem.bind(this,item)}>
-			<AtAvatar circle size='large' text='哈'/>
+			<AtAvatar circle size='small' text='哈'/>
 			<View className='item-info'>
 			<Text className='title at-article__h3'>{item.title}</Text>
 			<View className='item-status'>

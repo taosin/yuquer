@@ -2,14 +2,14 @@
 /*@import "../common/index.scss";*/
 .index{
 	background: #fbf9fe;
-	height: 100%;
 }
 
 .title-bar{
 	position: fixed;
 	width: 100%;
 	top:0;
+	z-index: 1;
 }
 .item-list{
-	margin-top: 100px;
+	padding-top: 90px;
 }

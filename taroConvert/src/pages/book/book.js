@@ -1,38 +1,26 @@
-/*
-* @Author: iMocco
-* @Date:   2019-02-15 18:08:23
-* @Last Modified by:   iMocco
-* @Last Modified time: 2019-03-25 17:28:25
-*/
 import { Block, View, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import withWeapp from '@tarojs/with-weapp'
-import { AtCard, AtGrid } from 'taro-ui'
-import https from './../../utils/index.js'
+import { AtTabs, AtTabsPane, AtList, AtListItem, AtDivider, AtNavBar } from 'taro-ui'
+
+import ItemList from './../../components/itemList/index'
 import './book.scss'
+
+import https from './../../utils/index.js'
+import { formatTime } from './../../utils/util.js'
 @withWeapp('Page')
 class _C extends Taro.Component {
 	constructor() {
 		super(...arguments)
 		this.state = {
-			current: 0,
 			dataList: []
 		}
-	}
-	config = {
-		navigationBarTitleText: '知识库'
 	}
 	componentDidMount() {
 		this.getRecentlyDocs();
 	}
-
 	getRecentlyDocs() {
 		let params = {};
-		// params.url = 'users/taoxin/repos'
-		// params.data = {}
-		// params.data.include_membered = true
-		// params.data.type = 'all'
-		// params.data.offset = 0
 		params.url = 'user/recent-updated'
 		params.data = {
 			offset: 0,
@@ -44,30 +32,42 @@ class _C extends Taro.Component {
 		https.request(params).then(res => {
 			if (res.code === 200) {
 				this.setState({
-					dataList: res.data
+					dataList: this.formatRes(res.data)
 				})
 			}
 		})
 	}
-	render() {
-		const { dataList } = this.state
-		const bookItem = (
-			<View className="book-list">
-			{dataList.map((item, index) =>
-				<View className="book-item" key={index}>
-				<AtCard note={item.updated_at} title={item.name} isFull>
-				{item.user.name}
-				</AtCard>
-				</View>
-				)}
-			</View>
-			)
-		return (
-			<View className="index">
-			{bookItem}
-			</View>
-			)
-		}
+	formatRes(res){
+		let len = res.length;
+		if(!len) return;
+		let datas = [];
+		res.forEach(item =>{
+			let data = {};
+			data.title = item.name;
+			// data.slug = item.slug;
+			data.extra = item.user.name
+			// data.namespace = item.book.namespace
+			data.time = formatTime(item.updated_at)
+			// data.description = item.description
+			// data.status = item.status
+			datas.push(data)
+		})
+		return datas;
 	}
+	clickItem(item){
+		Taro.navigateTo({
+			url: `/pages/content/content?namespace=${item.namespace}&doc=${item.slug}`
+		})
+	}
+	render() {
+		return (
+			<View className='index'>
+				<View className='item-list'>
+					<ItemList itemList={dataList}/>
+				</View>
+			</View>
+			)
+	}
+}
 
-	export default _C
+export default _C

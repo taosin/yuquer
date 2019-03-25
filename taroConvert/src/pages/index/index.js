@@ -8,7 +8,7 @@ import ItemList from './../../components/itemList/index'
 import './index.scss'
 
 import https from './../../utils/index.js'
-import { formatTime } from './../../utils/util.js'
+import { dateFormat } from './../../utils/util.js'
 @withWeapp('Page')
 class _C extends Taro.Component {
   constructor() {
@@ -46,7 +46,7 @@ class _C extends Taro.Component {
     https.request(params).then(res => {
       if (res.code === 200) {
         this.setState({
-          dataList: this.formatRes(res.data)
+          dataList: this.data.dataList.concat(this.formatRes(res.data))
         })
       }
     })
@@ -55,17 +55,25 @@ class _C extends Taro.Component {
     let len = res.length;
     if(!len) return;
     let datas = [];
+    let dateVals = {}
     res.forEach(item =>{
       let data = {};
+      let dateKey = dateFormat(item.updated_at,'yyyy年MM月')
       data.title = item.title;
       data.slug = item.slug;
       data.extra = item.book.user.name + ' / ' + item.book.name
       data.namespace = item.book.namespace
-      data.time = formatTime(item.updated_at)
+      data.time = dateFormat(item.updated_at,'yyyy-MM-dd hh:mm')
       data.description = item.description
       data.status = item.status
-      datas.push(data)
+      dateVals[dateKey] = (dateVals[dateKey] && dateVals[dateKey].length? dateVals[dateKey]: []).concat(data)
     })
+    for(let key in dateVals){
+      datas.push({
+        date: key,
+        content: dateVals[key]
+      })
+    }
     return datas;
   }
   clickItem(item){
@@ -76,7 +84,8 @@ class _C extends Taro.Component {
 
   onTabChange(index) {
     this.setState({
-      current: index
+      current: index,
+      dataList: []
     },() =>{
       if (index) {
         this.getRecentlyDocs()
@@ -86,17 +95,34 @@ class _C extends Taro.Component {
     })
   }
   render() {
+    const {dataList} = this.props
     return (
       <View className='index'>
       <View className='title-bar'>
-        <TitleBar tabList={tabList} current={current} onTabChange={this.onTabChange}/>
+      <TitleBar tabList={tabList} current={current} onTabChange={this.onTabChange}/>
       </View>
       <View className='item-list'>
-        <ItemList itemList={dataList}/>
-      </View>
-      </View>
-      )
+      {dataList.map((item,i) =>
+        <View className='index' key={i}>
+        <View className='at-article__h2'>{item.date}</View>
+        <AtList>
+        {item.content.map((doc,j) =>
+          <AtListItem
+          key={doc.slug}
+          title={doc.title}
+          note={doc.time}
+          arrow='right'
+          onClick={this.clickItem.bind(this,doc)}
+          thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
+        />
+        )}
+        </AtList>
+        </View>
+        )}
+        </View>
+        </View>
+        )
+      }
     }
-  }
 
-  export default _C
+    export default _C
