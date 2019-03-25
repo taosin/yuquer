@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2019-02-18 15:21:38
 * @Last Modified by:   iMocco
-* @Last Modified time: 2019-03-25 17:38:05
+* @Last Modified time: 2019-03-25 22:54:34
 */
 
 .index {
@@ -41,5 +41,10 @@
   }
   .my-groups{
     margin-top: 10rpx;
+  }
+  .logout-btn{
+    width: 80vw;
+    text-align: center;
+    margin-top:30px;
   }
 }

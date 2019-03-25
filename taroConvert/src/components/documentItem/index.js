@@ -2,7 +2,7 @@
 * @Author: iMocco
 * @Date:   2019-03-13 16:49:10
 * @Last Modified by:   iMocco
-* @Last Modified time: 2019-03-25 18:09:22
+* @Last Modified time: 2019-03-25 23:08:23
 */
 import Taro, { Component } from '@tarojs/taro'
 import PropTypes from 'prop-types';
@@ -24,9 +24,9 @@ export default class DocumentItem extends Component {
 	componentWillMount() {
 	}
 	clickItem(item){
-		Taro.navigateTo({
-			url: `/pages/content/content?namespace=${item.namespace}&doc=${item.slug}`
-		})
+		// Taro.navigateTo({
+		// 	url: `/pages/content/content?namespace=${item.namespace}&doc=${item.slug}`
+		// })
 	}
 	render() {
 		const {item} = this.props

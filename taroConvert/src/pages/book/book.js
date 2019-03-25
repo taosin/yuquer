@@ -19,6 +19,9 @@ class _C extends Taro.Component {
 	componentDidMount() {
 		this.getRecentlyDocs();
 	}
+	config = {
+		navigationBarTitleText: '知识库'
+	}
 	getRecentlyDocs() {
 		let params = {};
 		params.url = 'user/recent-updated'
@@ -55,16 +58,16 @@ class _C extends Taro.Component {
 		return datas;
 	}
 	clickItem(item){
-		Taro.navigateTo({
-			url: `/pages/content/content?namespace=${item.namespace}&doc=${item.slug}`
-		})
+		// Taro.navigateTo({
+		// 	url: `/pages/content/content?namespace=${item.namespace}&doc=${item.slug}`
+		// })
 	}
 	render() {
 		return (
 			<View className='index'>
-				<View className='item-list'>
-					<ItemList itemList={dataList}/>
-				</View>
+			<View className='item-list'>
+			<ItemList itemList={dataList}/>
+			</View>
 			</View>
 			)
 	}

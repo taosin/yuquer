@@ -19,8 +19,12 @@ class _C extends Taro.Component {
       { title: '最近编辑的' },
       { title: '我创建的' }
       ],
-      dataList: []
+      dataList: [],
+      iconInfo: { size: 25, color: '#096dd9', value: 'file-generic'}
     }
+  }
+  config = {
+    navigationBarTitleText: '文档'
   }
   componentDidMount() {
     this.getMyDocs();
@@ -77,9 +81,9 @@ class _C extends Taro.Component {
     return datas;
   }
   clickItem(item){
-    Taro.navigateTo({
-      url: `/pages/content/content?namespace=${item.namespace}&doc=${item.slug}`
-    })
+    // Taro.navigateTo({
+    //   url: `/pages/content/content?namespace=${item.namespace}&doc=${item.slug}`
+    // })
   }
 
   onTabChange(index) {
@@ -95,7 +99,7 @@ class _C extends Taro.Component {
     })
   }
   render() {
-    const {dataList} = this.props
+    const {dataList,iconInfo} = this.props
     return (
       <View className='index'>
       <View className='title-bar'>
@@ -113,7 +117,7 @@ class _C extends Taro.Component {
           note={doc.time}
           arrow='right'
           onClick={this.clickItem.bind(this,doc)}
-          thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
+          iconInfo={iconInfo}
         />
         )}
         </AtList>

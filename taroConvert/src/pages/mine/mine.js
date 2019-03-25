@@ -30,6 +30,10 @@ class _C extends Taro.Component {
     }
   }
 
+  clickItem(url){
+    Taro.switchTab({url})
+  }
+
   render() {
     const { hasUserLogin: hasUserLogin, userInfo: userInfo } = this.state
     return (
@@ -60,20 +64,23 @@ class _C extends Taro.Component {
             <AtListItem
               title='我的文档'
               arrow='right'
-              thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
+              iconInfo={{ size: 25,
+              color: '#096dd9', value: 'file-generic', }}
+              onClick={this.clickItem.bind(this,'/pages/index/index')}
             />
             <AtListItem
               title='我的知识库'
-              note='描述信息'
               arrow='right'
-              thumb='http://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png'
+              iconInfo={{ size: 25,
+              color: '#096dd9', value: 'shopping-bag', }}
+              onClick={this.clickItem.bind(this,'/pages/book/book')}
             />
             <AtListItem
-              title='我的团队'
-              note='描述信息'
-              extraText='详细信息'
+              title='设置'
               arrow='right'
-              thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
+              iconInfo={{ size: 25,
+              color: '#096dd9', value: 'settings', }}
+              onClick={this.clickItem.bind(this,'/pages/index/index')}
             />
           </AtList>
         </View>
