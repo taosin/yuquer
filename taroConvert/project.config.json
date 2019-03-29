@@ -2,7 +2,7 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "taroConvert",
 	"description": "",
-	"appid": "appid",
+	"appid": "wx9a1cfda2a185a1e5",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -65,6 +65,12 @@
 					"name": "team",
 					"pathName": "pages/team/team",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "content",
+					"pathName": "pages/content/content",
 					"scene": null
 				}
 			]
